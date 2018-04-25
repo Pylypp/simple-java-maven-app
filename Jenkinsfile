@@ -32,8 +32,10 @@ pipeline {
             }
         }
         stage('Create Docker Image'){
-            steps{
-                sh "docker.build("test-java-image:${env.BUILD_NUMBER}")"
+                docker.build("test-java-image:${env.BUILD_NUMBER}")
+		}
+
+	stage('Test image'){
 		sh "docker run test-java-image:${env.BUILD_NUMBER}"
 		}
 	}        
