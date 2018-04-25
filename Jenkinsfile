@@ -27,7 +27,7 @@ pipeline {
 		}
 	post {
 	   success {
-	      archive "target/**/*"
+	      archiveArtifacts artifacts: "target/**/*.jar, fingerprint: true"
 		}
             }
         }
